@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let food of menuList">
+        <a>
+            <p>{{ food.name }}</p>
+            <p>{{ food.cost | currency }}</p>
+            <p><button (click)="addToCart(food)" >Add To Cart</button></p>
+        </a>
+    </li>
+</ul>

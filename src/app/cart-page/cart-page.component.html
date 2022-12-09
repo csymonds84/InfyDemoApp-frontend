@@ -1,0 +1,38 @@
+<div class="container">
+    <ng-container *ngIf="cartList.length != 0">
+        <ul>
+            <li *ngFor="let item of cartList; let i = index">
+                <div class="name">
+                    {{ item.name }}
+                </div>
+                <div class="cost">
+                    {{ item.cost | currency }}
+                </div>
+                <div class="remove">
+                    <button class="remove-button" (click)=removeFromCart(item)>Remove</button>
+                </div>
+            </li>
+        </ul>
+
+        <div class="checkout">
+            <div class="total-price">
+                {{ grandTotal | currency }}
+            </div>
+            <div class="btn-container">
+                <button class="btn remove-button" (click)="emptyCart();">Empty Cart</button>
+                <button routerLink="/checkout" (click)="checkout();">Checkout</button>                    
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+
+<ng-container *ngIf="cartList == 0">
+    <div class="container">
+        <div class="center">
+            <h4>Your cart is empty</h4>
+            <p>Add to it now</p>
+            <button routerLink="/" class="btn btn-primary">Back to Menu</button>
+        </div>
+    </div>
+</ng-container>
